@@ -9,10 +9,41 @@
     <link rel="stylesheet" href="./styles/globals.css" />
     <link rel="stylesheet" href="./styles/style.css" />
     <link rel="stylesheet" href="./styles/animations.css" />
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="./images/favicon.svg">
+    <link rel="apple-touch-icon" href="./images/favicon.png">
   </head>
   <body class="page">
-    <header class="header"></header>
-    <main></main>
+    <header class="header">
+      <div>
+      <a>&lt;/HTML&gt;</a>
+      <h1 class="header__title">закрывающий тег</h1>
+      </div>
+    </header>
+    <main class="cards">
+      <article class="card">
+          <h2 class="card__title">Фритрек и нулевой спринт: Подготовка к работе</h2>
+          <div class="card__image-wrapper">
+          <img class="card__image" src="./svg/freetrackdesk.svg">
+          </div>
+          <div class="description">
+            <p>Это было самое начало пути. На этом этапе важно было проникнуться основами и настроиться на учёбу. И, возможно,
+            подумать, как &nbsp; новые знания могут повлиять на ваше будущее.</p>
+            <p>Место для ваших воспоминаний о начале обучения.</p>
+          </div>
+          <div class="card__controls">
+          <button type="button" class="card__icon-button" aria-labelledby="like-button-01">
+          <svg>
+            <use href="./images/heartanimationwhite.svg"></use>
+          </svg>
+          </button>
+          <button type="button" class="button card__like-button">
+            <span class="button__text">Like</span>
+          </button>
+          </div>
+      </article>
+      
+    </main>
     <script src="./scripts/like.js"></script>
   </body>
 </html>

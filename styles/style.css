@@ -11,6 +11,124 @@
 */
 
 .page {
-  min-inline-size: 320px;
-  min-block-size: 100dvb;
+  font-family: var(--main-font-family, sans-serif);
+  background-image: var(--background-gradient);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.header {
+  font-family: var(--accent-font-family);
+  display: flex;
+  font-size: var(--font-size-logo);
+  font-weight: 415;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #fff;
+  border: 2px solid #000;
+  padding: var(--header-padding);
+  inline-size: var(--header-size);
+  block-size: 368px;
+  margin-top: 100px;
+}
+
+
+.header__title {
+  font-size: var(--font-size-title);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.card__title {
+  font-family: var(--main-font-family);
+  font-weight: 715;
+  font-size: var(--main-font-size);
+  padding: 4px 10px;
+}
+
+.cards {
+  margin-top: 104px;
+  display: flex;
+  flex-direction: column;
+  gap: 55px;
+  inline-size: clamp(23.438rem, 16.285rem + 30.516vw, 43.75rem);
+  block-size: clamp(23.188rem, 16.035rem + 30.516vw, 43.5rem);
+}
+
+.card {
+  display: flex;
+  
+  position: relative;
+  flex-direction: column;
+  background-color: #fff;
+  border: 2px solid #000;
+}
+
+.card__image {
+  display: flex;
+  align-items: center;
+  position: relative;
+  inline-size: clamp(23.188rem, 16.035rem + 30.516vw, 43.5rem);
+  block-size: clamp(23.188rem, 16.035rem + 30.516vw, 43.5rem);
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  line-height: 117%;
+  padding: 25px;
+  font-family: var(--main-font-family);
+  font-weight: 410;
+  font-size: var(--main-font-size);
+}
+
+.button {
+  display: flex;
+  flex-direction: ;
+justify-content: center;
+align-items: center;
+}
+
+.card__controls {
+  font-family: var(--main-font-family);
+  font-weight: 410;
+  font-size: var(--main-font-size);
+  padding: 0 25px;
+}
+
+.card__icon-button {
+  background-color: transparent;
+  border: none;
+   animation:  .3s ease;
+}
+
+.card__image-wrapper::after {
+  content: "</html>";
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+  position: absolute;
+  color: #000;
+  text-transform: uppercase;
+  width: 98px;
+  height: 14px;
+  font-weight: 400;
+  font-family: var(--accent-font-family);
+  opacity: 0.5;
+   top: 5%;          /* Всегда по центру по вертикали */
+  right: 5.5%;         /* Всегда по центру по горизонтали */
+ 
+  mix-blend-mode: hard-light;
+}
+
+@supports (text-stroke: 1px #fff) {
+  .card::after {
+    text-stroke: 1px #fff;
+  }
 }
