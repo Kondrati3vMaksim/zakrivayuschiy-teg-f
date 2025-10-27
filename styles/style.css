@@ -38,7 +38,6 @@
   margin-top: 100px;
 }
 
-
 .header__title {
   font-size: var(--font-size-title);
   align-items: center;
@@ -67,6 +66,8 @@
   flex-direction: column;
   background-color: #fff;
   border: 2px solid #000;
+
+  min-inline-size: clamp(23.188rem, 16.035rem + 30.516vw, 43.5rem);;
 }
 
 .card {
@@ -77,34 +78,77 @@
 }
 
 .card__image {
-  display: block; /* Меняем на block чтобы убрать отступ снизу */
-  width: 100%; /* Или ваша clamp формула */
-  height: auto;
+  display: block;
   margin: 0;
   padding: 0;
   border: none;
   inline-size: clamp(23.188rem, 16.035rem + 30.516vw, 43.5rem);
   block-size: auto;
 }
+
+.filter-blur {
+  filter: blur(1.5px);
+}
+
+.filter-sepia {
+  filter: sepia(0.7);
+}
+
+.filter-hue-rotate {
+  filter: hue-rotate(90deg);
+}
+
+.filter-grayscale {
+  filter: grayscale(0.9);
+}
+
+.filter-contrast {
+  filter: contrast(2);
+}
+
+.filter-saturate {
+  filter: saturate(3);
+}
+
+.filter-multiple {
+  filter: sepia(0.4) hue-rotate(75deg) contrast(2.2) saturate(1);
+}
+
+.filter-invert {
+  filter: invert(1);
+}
+
+.filter-ultramarine-emerald {
+  filter: hue-rotate(245deg) saturate(1.9) contrast(1.6) brightness(0.88)
+    sepia(0.15) blur(0.1px);
+}
+
 .description {
   display: flex;
   flex-direction: column;
   gap: 25px;
-  line-height: 117%;
   padding: 25px;
+}
+
+.description__text {
   font-family: var(--main-font-family);
   font-weight: 410;
   font-size: var(--main-font-size);
+  line-height: 117%;
 }
 
 .button {
   display: flex;
-  flex-direction: ;
-justify-content: center;
-align-items: center;
+  justify-content: center;
+  align-items: center;
+  border: 1px #000 solid;
 }
 
 .card__controls {
+    display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: flex-end;
   font-family: var(--main-font-family);
   font-weight: 410;
   font-size: var(--main-font-size);
@@ -114,7 +158,18 @@ align-items: center;
 .card__icon-button {
   background-color: transparent;
   border: none;
-   animation:  .3s ease;
+   margin-bottom: 25px;
+}
+
+.card__like-button {
+    background-color: transparent;
+    border: 2px solid #000;
+  padding: 9px 17px;
+  justify-content: center;
+  align-items: center;
+  block-size: 38px;
+  inline-size: 130px;
+  margin-bottom: 25px;
 }
 
 .card__image-wrapper {
@@ -132,8 +187,143 @@ align-items: center;
   mix-blend-mode: hard-light;
 }
 
+.save__button {
+  display: flex;
+  justify-content: center;
+}
+
+
+.card__icon-button:hover {
+cursor: pointer;
+}
+
+.card__like-button:focus {
+outline: none;
+ box-shadow:  2px 2px 0 #000 ;
+transition: 0.3s ease;}
+
+.button__type-save {
+  gap: 8px;
+  block-size: 55px;
+  inline-size: 335px;
+  margin-bottom: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #000;
+  cursor: pointer;
+  text-transform: uppercase;
+  position: relative;
+  color: #000;
+}
+
+.button__type-save:focus {
+  outline: none;
+ box-shadow:  2px 2px 0 #000 ;
+transition: 0.3s ease;
+}
+
+.button__type-save::before {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: #000;
+transform-origin: left;
+ transform: scaleX(0);
+transition: transform 0.5s ease-in-out;
+}
+
+
+
+.button__type-save:hover::before {
+transform: scale(1);
+transition: 0.5s ease-in-out;
+}
+
+.button__type-ok {
+ gap: 8px;
+  block-size: 55px;
+  inline-size: 335px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #000;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin-top: 30px ;
+}
+
+.button__type-ok:focus {
+    outline: none;
+ box-shadow:  2px 2px 0 #000 ;
+transition: 0.3s ease;
+}
+
+.button__text {
+  font-family: var(--accent-font-family);
+  font-size: 14px;
+  z-index: 1;
+  mix-blend-mode: difference;
+  color: #000;
+  position: relative;
+}
+
+.dialog {
+  display: flex;
+  border: 2px solid #000;
+  overflow: hidden;
+  background: #fff;
+}
+
+.dialog__resp {
+  display: flex;
+  block-size: auto;
+  inline-size: 353px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.dialog__flex-text {
+  font-weight: 400;
+  line-height: 150%;
+  text-transform: uppercase;
+font-family: var(--accent-font-family);}
+
+.dialog::backdrop {
+  background: #000;
+opacity: 0.75;
+}
+
+.dialog:not([open]) {
+  display: none;
+}
+
+.dialog[open] {
+  display: block;
+}
+
 @supports (text-stroke: 1px #fff) {
   .card::after {
     text-stroke: 1px #fff;
   }
+}
+
+.like-icon {
+width: 21px;
+height: 21px;}
+
+.icon {
+  width: 21px;
+  height: 21px;
+}
+
+.icon-big {
+  width: 39px;
+  height: 39px;
+  display: block;
+   flex-shrink: 0;
 }

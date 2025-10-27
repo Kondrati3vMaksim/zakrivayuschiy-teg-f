@@ -14,7 +14,7 @@
 */
 
 .like-icon {
-    fill: var(--bg-color);
+    fill: #d3d3d3;
     inline-size: 39px;
     block-size: 36px;
 }
@@ -26,7 +26,7 @@
 
 /* Сердце */
 .like-icon .main-body {
-    fill: var(--bg-color);
+    fill: #d3d3d3;
     transition: fill .3s;
 }
 
@@ -36,7 +36,7 @@
 }
 
 .card__icon-button:active .main-body {
-    fill: var(--heart-color);
+    fill: red;
     transition: fill .3s 6ms;
 }
 
