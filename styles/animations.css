@@ -14,25 +14,23 @@
 */
 
 .core {
-fill: transparent;
-transition: fill 0.3s linear 0.03s;
+  fill: transparent;
+  transition: fill 0.3s linear 0.03s;
 }
 
 .core:hover {
-    fill: var(--main-body-hover-color);
-     transition: fill 0.3s linear 0s;
+  fill: var(--main-body-hover-color);
+  transition: fill 0.3s linear 0s;
 }
     
-    
-
 .contour {
-fill: var(--contour-color);
-transition: fill  0.1s linear;
+  fill: var(--contour-color);
+  transition: fill  0.1s linear;
 }
 
 .main-body {
-fill: transparent;
-transition: fill 0.3s linear ;
+  fill: transparent;
+  transition: fill 0.3s linear ;
 }
 
 .like-icon:hover .core {
@@ -41,8 +39,8 @@ transition: fill 0.3s linear ;
 }
 
 .like-icon:hover .main-body {
-fill: var(--main-body-hover-color);
-transition: fill 0.3s linear 0.05s;
+  fill: var(--main-body-hover-color);
+  transition: fill 0.3s linear 0.05s;
 }
 
 .like-icon:active .core {
@@ -78,7 +76,7 @@ transition: fill 0.3s linear 0.05s;
   animation: sparks 0.3s 0.3s ease-in; 
 }
 .sparks {
-fill: var(--animation-fill-color);
+  fill: var(--animation-fill-color);
 }
 
 @keyframes scale {
