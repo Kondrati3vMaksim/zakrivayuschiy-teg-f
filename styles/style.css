@@ -9,6 +9,9 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
+body {
+  font-variation-settings: "wght" 400;
+}
 
 .page {
   font-family: var(--main-font-family, sans-serif);
@@ -25,8 +28,8 @@
 .header {
   font-family: var(--accent-font-family);
   display: flex;
-  font-size: var(--font-size-logo);
-  font-weight: 415;
+
+  font-weight: 400;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -38,8 +41,12 @@
   margin-top: 100px;
 }
 
+.header__logo {
+  font-size: var(--font-size-logo);
+}
+
 .header__title {
-  font-size: var(--font-size-title);
+  font-size: 23px;
   align-items: center;
   justify-content: center;
   display: flex;
@@ -127,11 +134,11 @@
   flex-direction: column;
   gap: 25px;
   padding: 25px;
+  font-variation-settings: "wght" 400;
 }
 
 .description__text {
   font-family: var(--main-font-family);
-  font-weight: 410;
   font-size: var(--main-font-size);
   line-height: 21px;
   font-style: Regular;
@@ -236,12 +243,13 @@
   transform-origin: left;
   transform: scaleX(0);
   transition: transform 0.5s ease-in-out;
+  z-index: 0;
 }
 
 .card__like-button:hover::before,
 .button__type-ok:hover::before,
 .button__type-save:hover::before {
-  transform: scale(1);
+  transform: scaleX(1);
   transition: 0.5s ease-in-out;
 }
 
@@ -263,7 +271,6 @@
   text-transform: uppercase;
   margin-top: 30px;
   block-size: 55px;
-  inline-size: 335px;
 }
 
 .button__type-ok:focus {
@@ -291,21 +298,22 @@
 
 .dialog {
   display: flex;
+  flex-direction: column;
   border: 2px solid #000;
   overflow: hidden;
   background: #fff;
+  inline-size: 357px;
 }
 
 .dialog__resp {
   display: flex;
-  block-size: auto;
-  inline-size: 353px;
   justify-content: space-between;
   align-items: center;
   gap: 20px;
 }
 
 .dialog__flex-text {
+  display: flex;
   font-weight: 400;
   line-height: 150%;
   text-transform: uppercase;
@@ -321,13 +329,10 @@
   display: none;
 }
 
-.dialog[open] {
-  display: block;
-}
-
-@supports (text-stroke: 1px #fff) {
-  .card::after {
+@supports (-webkit-text-stroke: 1px #fff) or (text-stroke: 1px #fff) {
+  .card__image-label {
     text-stroke: 1px #fff;
+    -webkit-text-stroke: 1px;
   }
 }
 
@@ -345,4 +350,30 @@
   height: 39px;
   display: block;
   flex-shrink: 0;
+}
+
+@media (width <= 375px) {
+  .button__type-save {
+    block-size: 84px;
+    inline-size: 306px;
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .button__type-save .button__text {
+    display: block;
+    text-align: center;
+  }
+
+  .icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .dialog__flex-text {
+  }
+
+  .button__type-ok {
+    width: 100%;
+  }
 }
