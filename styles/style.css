@@ -28,9 +28,7 @@ body {
 .header {
   font-family: var(--accent-font-family);
   display: flex;
-
   font-weight: 400;
-  align-items: center;
   justify-content: center;
   flex-direction: column;
   background-color: #fff;
@@ -46,10 +44,13 @@ body {
 }
 
 .header__title {
-  font-size: 23px;
+  font-size: clamp(0.875rem, 0.6549rem + 0.939vw, 1.5rem);
   align-items: center;
   justify-content: center;
   display: flex;
+  margin-top: 20px;
+  line-height: 100%;
+  letter-spacing: 0;
 }
 
 .cards__title {
