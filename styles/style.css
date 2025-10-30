@@ -9,12 +9,7 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
-body {
-  font-variation-settings: "wght" 400;
-}
-
 .page {
-  font-family: var(--main-font-family, sans-serif);
   background-image: var(--background-gradient);
   background-size: cover;
   background-attachment: fixed;
@@ -28,14 +23,13 @@ body {
 .header {
   font-family: var(--accent-font-family);
   display: flex;
-  font-weight: 400;
   justify-content: center;
   flex-direction: column;
   background-color: #fff;
   border: 2px solid #000;
   padding: var(--header-padding);
   inline-size: var(--header-size);
-  block-size: 368px;
+  min-block-size: 368px;
   margin-top: 100px;
 }
 
@@ -50,16 +44,14 @@ body {
   display: flex;
   margin-top: 20px;
   line-height: 100%;
-  letter-spacing: 0;
+  text-transform: uppercase;
 }
 
 .cards__title {
   font-family: var(--main-font-family);
-  font-weight: 715;
   font-size: var(--main-font-size);
   padding: 4px 10px;
-  line-height: 100%;
-  height: 30;
+  font-variation-settings: 'wght' 715;
 }
 
 .content {
@@ -68,7 +60,6 @@ body {
   flex-direction: column;
   gap: 54px;
   inline-size: clamp(23.438rem, 16.285rem + 30.516vw, 43.75rem);
-  block-size: clamp(23.188rem, 16.035rem + 30.516vw, 43.5rem);
 }
 
 .cards {
@@ -83,6 +74,8 @@ body {
   display: flex;
   align-items: center;
   position: relative;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
 }
 
 .card__image {
@@ -91,6 +84,8 @@ body {
   padding: 0;
   border: none;
   inline-size: clamp(23.188rem, 16.035rem + 30.516vw, 43.5rem);
+  object-fit: cover;
+  object-position: center;
 }
 
 .filter-blur {
@@ -135,23 +130,13 @@ body {
   flex-direction: column;
   gap: 25px;
   padding: 25px;
-  font-variation-settings: "wght" 400;
 }
 
 .description__text {
   font-family: var(--main-font-family);
   font-size: var(--main-font-size);
-  line-height: 21px;
-  font-style: Regular;
-  letter-spacing: 0%;
+  font-variation-settings: "wght" 410, "wdth" 100;
   margin: 0;
-}
-
-.button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px #000 solid;
 }
 
 .card__controls {
@@ -160,8 +145,8 @@ body {
   align-items: center;
   justify-content: flex-end;
   font-family: var(--main-font-family);
-  font-weight: 410;
   font-size: var(--main-font-size);
+  font-variation-settings: 'wght' 400;
   padding: 0 25px;
 }
 
@@ -171,15 +156,14 @@ body {
   margin-bottom: 25px;
   justify-content: center;
   display: flex;
+  transition: outline 0.3s linear;
 }
 
 .card__like-button {
   background-color: transparent;
-  border: 2px solid #000;
   padding: 9px 17px;
-  block-size: 38px;
-  inline-size: 130px;
   margin-bottom: 25px;
+  min-inline-size: 130px;
 }
 
 .card__image-wrapper {
@@ -189,13 +173,39 @@ body {
   position: absolute;
   color: #000;
   text-transform: uppercase;
-  width: 98px;
-  height: 14px;
   font-weight: 400;
   font-size: 14px;
   font-family: var(--accent-font-family);
   opacity: 0.5;
   mix-blend-mode: hard-light;
+}
+
+.button {
+  border: 2px solid #000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--button-hover-bg);
+  position: relative;
+  color: var(--button-text-color);
+  font-family: var(--accent-font-family);
+  transition: outline 0.3s linear; 
+}
+
+.card__icon-button:focus-visible {
+  outline: 2px solid #000;
+}
+
+.card:focus,
+.button:focus {
+  outline: none;
+}
+
+.card:focus-visible,
+.button:focus-visible {
+  box-shadow: 2px 2px 0 #000;
+  transition: 0.3s ease;
 }
 
 .save__button {
@@ -207,33 +217,18 @@ body {
   cursor: pointer;
 }
 
-.card__like-button:focus,
-.button__type-save:focus,
-.button__type-ok:focus {
-  outline: none;
-  box-shadow: 2px 2px 0 #000;
-}
-
 .button__type-save {
   gap: 8px;
-  block-size: 55px;
+  min-block-size: 55px;
   inline-size: 335px;
   margin-bottom: 100px;
-  border: 2px solid #000;
   cursor: pointer;
-  text-transform: uppercase;
   color: #000;
-}
-
-.button__type-save:focus {
-  outline: none;
-  box-shadow: 2px 2px 0 #000;
-  transition: 0.3s ease;
 }
 
 .card__like-button::before,
 .button__type-save::before,
-.button__type-ok::before {
+.button__dialog::before {
   content: "";
   position: absolute;
   top: 0;
@@ -248,36 +243,15 @@ body {
 }
 
 .card__like-button:hover::before,
-.button__type-ok:hover::before,
+.button__dialog:hover::before,
 .button__type-save:hover::before {
   transform: scaleX(1);
-  transition: 0.5s ease-in-out;
 }
 
-.button__type-ok,
-.card__like-button,
-.button__type-save {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid #000;
-  cursor: pointer;
-  background: var(--button-hover-bg);
-  position: relative;
-  color: var(--button-text-color);
-}
-
-.button__type-ok {
-  gap: 8px;
-  text-transform: uppercase;
+.button__dialog {
+  width: 100%;
+  min-height: 38px;
   margin-top: 30px;
-  block-size: 55px;
-}
-
-.button__type-ok:focus {
-  outline: none;
-  box-shadow: 2px 2px 0 #000;
-  transition: 0.3s ease;
 }
 
 .button__text {
@@ -289,7 +263,6 @@ body {
   position: relative;
 }
 
-.card__save-button svg,
 .button__type-save svg {
   position: relative;
   z-index: 1;
@@ -298,27 +271,25 @@ body {
 }
 
 .dialog {
-  display: flex;
-  flex-direction: column;
   border: 2px solid #000;
-  overflow: hidden;
   background: #fff;
-  inline-size: 357px;
+  max-width: 353px;
+  padding: 30px 40px;
+  font-family: var(--accent-font-family);
 }
 
-.dialog__resp {
+.dialog-top {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   gap: 20px;
 }
 
-.dialog__flex-text {
-  display: flex;
-  font-weight: 400;
+.dialog-text {
+  max-width: 260px;
   line-height: 150%;
+  letter-spacing: 0;
   text-transform: uppercase;
-  font-family: var(--accent-font-family);
+  font-size: 14px;
 }
 
 .dialog::backdrop {
@@ -328,13 +299,6 @@ body {
 
 .dialog:not([open]) {
   display: none;
-}
-
-@supports (-webkit-text-stroke: 1px #fff) or (text-stroke: 1px #fff) {
-  .card__image-label {
-    text-stroke: 1px #fff;
-    -webkit-text-stroke: 1px;
-  }
 }
 
 .sparks {
@@ -355,23 +319,23 @@ body {
 
 @media (width <= 375px) {
   .button__type-save {
-    block-size: 84px;
+    min-block-size: 84px;
     inline-size: 306px;
     flex-direction: column;
     padding: 15px;
-  }
-
-  .button__type-save .button__text {
-    display: block;
-    text-align: center;
   }
 
   .icon {
     width: 28px;
     height: 28px;
   }
+}
 
-  .button__type-ok {
-    width: 100%;
+@supports (-webkit-text-stroke: 1px var(--text-stroke-color)) or
+  (text-stroke: 1px var(--text-stroke-color)) {
+  .card__image-wrapper {
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--text-stroke-color);
+    text-stroke: 1px var(--text-stroke-color);
   }
 }

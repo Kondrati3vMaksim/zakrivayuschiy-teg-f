@@ -69,17 +69,17 @@
 }
 
 .like-icon.is-liked .heart {
-  animation: scale 0.3s 0.1s ease-in;
+  animation: icon-scale 0.3s 0.1s ease-in;
 }
 
 .like-icon.is-liked .sparks {
-  animation: sparks 0.3s 0.3s ease-in;
+  animation: starsShowingUp 0.3s 0.3s ease-in;
 }
 .sparks {
   fill: var(--animation-fill-color);
 }
 
-@keyframes scale {
+@keyframes icon-scale {
   0% {
     transform: scale(1);
   }
@@ -91,7 +91,7 @@
   }
 }
 
-@keyframes sparks {
+@keyframes starsShowingUp {
   0% {
     opacity: 0;
   }
