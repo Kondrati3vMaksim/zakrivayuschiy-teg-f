@@ -33,6 +33,10 @@
   transition: fill 0.3s linear;
 }
 
+.heart {
+  transform-origin: center;
+}
+
 .like-icon:hover .core {
   fill: var(--core-hover-color);
   transition: fill 0.3s linear;
@@ -70,10 +74,12 @@
 
 .like-icon.is-liked .heart {
   animation: icon-scale 0.3s 0.1s ease-in;
+
 }
 
 .like-icon.is-liked .sparks {
   animation: starsShowingUp 0.3s 0.3s ease-in;
+ 
 }
 .sparks {
   fill: var(--animation-fill-color);

@@ -18,6 +18,8 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  font-family: var(--main-font-family);
+  font-variation-settings: "wght" var(--wght-regular), "wdth" var(--wdth);
 }
 
 .header {
@@ -29,12 +31,12 @@
   border: 2px solid #000;
   padding: var(--header-padding);
   inline-size: var(--header-size);
-  min-block-size: 368px;
   margin-top: 100px;
 }
 
 .header__logo {
   font-size: var(--font-size-logo);
+  text-transform: uppercase;
 }
 
 .header__title {
@@ -51,7 +53,7 @@
   font-family: var(--main-font-family);
   font-size: var(--main-font-size);
   padding: 4px 10px;
-  font-variation-settings: "wght" 715;
+  font-variation-settings: "wdth" var(--wght-bold);
 }
 
 .content {
@@ -133,9 +135,7 @@
 }
 
 .description__text {
-  font-family: var(--main-font-family);
   font-size: var(--main-font-size);
-  font-variation-settings: "wght" 410, "wdth" 100;
   margin: 0;
 }
 
@@ -146,7 +146,7 @@
   justify-content: flex-end;
   font-family: var(--main-font-family);
   font-size: var(--main-font-size);
-  font-variation-settings: "wght" 400;
+
   padding: 0 25px;
 }
 
@@ -222,13 +222,10 @@
   min-block-size: 55px;
   inline-size: 335px;
   margin-bottom: 100px;
-  cursor: pointer;
   color: #000;
 }
 
-.card__like-button::before,
-.button__type-save::before,
-.button__dialog::before {
+.button::before {
   content: "";
   position: absolute;
   top: 0;
@@ -242,9 +239,7 @@
   z-index: 0;
 }
 
-.card__like-button:hover::before,
-.button__dialog:hover::before,
-.button__type-save:hover::before {
+.button:hover::before {
   transform: scaleX(1);
 }
 
@@ -252,6 +247,7 @@
   width: 100%;
   min-height: 38px;
   margin-top: 30px;
+  text-transform: uppercase;
 }
 
 .button__text {
@@ -274,7 +270,7 @@
   border: 2px solid #000;
   background: #fff;
   max-width: 353px;
-  padding: 30px 40px;
+  padding: 30px 30px;
   font-family: var(--accent-font-family);
 }
 
